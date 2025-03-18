@@ -1,0 +1,207 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Prompt", sans-serif;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+
+.menu {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  padding: 60px 0;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.top {
+  height: 500vh;
+}
+
+.top__layer {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-timeline: scroll();
+  animation-range: 0 500vh;
+  /* animation-timeline: scroll(); в CSS запускает и управляет анимацией, привязанной к позиции прокрутки документа. */
+  /* Для текста */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+
+
+.top__layer--5 {
+  animation-name: top-layer-5;
+}
+
+@keyframes top-layer-5 {
+  to {
+    scale: 1.25;
+  }
+}
+
+.top__layer--4 {
+  animation-name: top-layer-4;
+}
+
+@keyframes top-layer-4 {
+  to {
+    scale: 1.35;
+  }
+
+}
+
+.top__layer--3 {
+  animation-name: top-layer-3;
+}
+
+@keyframes top-layer-3 {
+  to {
+    scale: 1.5;
+  }
+}
+
+.top__layer--2 {
+  animation-name: top-layer-2;
+}
+
+@keyframes top-layer-2 {
+  to {
+    scale: 2;
+  }
+
+}
+
+.top__layer--1 {
+  animation-name: top-layer-1;
+}
+
+@keyframes top-layer-1 {
+  to {
+    scale: 4;
+  }
+
+}
+
+
+.top__text {
+  font-family: "Gravitas One", serif;
+  position: relative;
+  z-index: 1;
+  animation-name: text;
+  opacity: 0;
+  animation-timeline: scroll();
+  animation-range: 50vh 500vh;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+
+@keyframes text {
+  to {
+    opacity: 1;
+  }
+}
+
+.title {
+  font-size: 120px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.text {
+  font-size: 24px;
+}
+
+.arrows-box {
+  border: 1px solid #fff;
+  background-color: rgba(30, 30, 30, .7);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.arrows {
+  height: 10px;
+  width: 10px;
+  position: relative;
+  margin: 23px auto 0;
+
+}
+
+.arrows::after,
+.arrows::before {
+  content: '';
+  position: absolute;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  width: 10px;
+  height: 10px;
+  animation: arrow 3s linear infinite;
+}
+
+.arrows::after {
+  animation: arrow 3s linear infinite -1.5s;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    transform: translate(0, -10px) rotate(-45deg);
+  }
+
+  10%,
+  90% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(0, 0px) rotate(-45deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) rotate(-45deg);
+  }
+}
